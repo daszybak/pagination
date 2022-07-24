@@ -1,9 +1,13 @@
 import type { NextPage } from "next";
+import { SearchAd, SearchAds } from "../components/layouts";
+import CreateAd from "../components/layouts/create-ad/create-ad.component";
 
 const Home: NextPage = () => {
   return (
     <div>
-      <h1>Home Page</h1>
+      <CreateAd />
+      <SearchAd />
+      <SearchAds />
     </div>
   );
 };
