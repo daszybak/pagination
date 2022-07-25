@@ -1,20 +1,24 @@
 import { Card, Text, Title } from "@mantine/core";
 import { skipToken } from "@reduxjs/toolkit/dist/query";
-import { useGetAdByIdQuery } from "../../store/ads/ads.api";
+import { useFindOneAdByIdQuery } from "../../store/graphql/graphql-generated";
 
 interface AdProps {
   query: number | undefined;
 }
 
 const Ad: React.FC<AdProps> = ({ query }) => {
-  const { data } = useGetAdByIdQuery(query ?? skipToken);
+  console.log("query", query);
+
+  const { data } = useFindOneAdByIdQuery(
+    query ? { id: query } : undefined ?? skipToken
+  );
 
   return (
     <div style={{ width: "300px", margin: "4rem" }}>
-      {data?.ad && (
+      {data?.findOneAd && (
         <Card shadow="sm" p="lq">
-          <Title>Ad: {data.ad.title}</Title>
-          <Text>Text: {data.ad.text}</Text>
+          <Title>Ad: {data?.findOneAd?.title}</Title>
+          <Text>Text: {data?.findOneAd?.text}</Text>
         </Card>
       )}
     </div>

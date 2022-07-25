@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { adsApi } from "./ads/ads.api";
+import { api } from "./graphql/graphql-generated";
 
 export const store = configureStore({
   reducer: {
-    [adsApi.reducerPath]: adsApi.reducer,
+    [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(adsApi.middleware),
+    getDefaultMiddleware().concat(api.middleware),
   devTools: process.env.NODE_ENV !== "production",
 });
 

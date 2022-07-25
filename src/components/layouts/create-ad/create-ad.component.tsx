@@ -1,7 +1,7 @@
 import { Button, TextInput, Title } from "@mantine/core";
 import React, { useState } from "react";
 
-import { useCreateAdMutation } from "../../../store/ads/ads.api";
+import { useCreateAdMutation } from "../../../store/graphql/graphql-generated";
 
 const CreateAd = () => {
   const [createAd, result] = useCreateAdMutation();

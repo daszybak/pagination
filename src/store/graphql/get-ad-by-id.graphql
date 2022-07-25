@@ -1,0 +1,6 @@
+query FindOneAdById($id: Int) {
+  findOneAd(where: { ad_id: { equals: $id } }) {
+    title
+    text
+  }
+}

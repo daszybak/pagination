@@ -1,0 +1,7 @@
+mutation CreateAd($title: String!, $text: String!) {
+  createAd(data: { title: $title, text: $text }) {
+    ad_id
+    title
+    text
+  }
+}

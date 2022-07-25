@@ -1,0 +1,11 @@
+schema: http://api.autofox.iddqd.hr/graphql
+documents: "src/store/graphql/*.graphql"
+generates:
+  ./src/store/graphql/graphql-generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-rtk-query:
+          importBaseApiFrom: "../api"
+          exportHooks: true
+watch: true
